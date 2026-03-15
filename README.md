@@ -1,4 +1,4 @@
-🌐 **Live Demo:** https://github.com/Bettina-Sam/creative-digital-labs.git
+🌐 **Live Demo:** https://creative-digital-labs.netlify.app
 
 ---
 
