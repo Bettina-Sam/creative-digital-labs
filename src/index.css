@@ -1,0 +1,247 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* Cyberpunk Digital Lab Design System */
+
+@layer base {
+  :root {
+    /* Core dark theme */
+    --background: 240 15% 4%;
+    --foreground: 0 0% 95%;
+
+    --card: 240 15% 8%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 240 15% 6%;
+    --popover-foreground: 0 0% 95%;
+
+    /* Neon Cyan Primary */
+    --primary: 185 100% 50%;
+    --primary-foreground: 240 15% 4%;
+
+    /* Neon Magenta Secondary */
+    --secondary: 320 100% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Electric Lime Accent */
+    --accent: 85 100% 55%;
+    --accent-foreground: 240 15% 4%;
+
+    --muted: 240 10% 15%;
+    --muted-foreground: 240 5% 60%;
+
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 10% 20%;
+    --input: 240 10% 15%;
+    --ring: 185 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom Lab Colors */
+    --neon-cyan: 185 100% 50%;
+    --neon-magenta: 320 100% 60%;
+    --neon-lime: 85 100% 55%;
+    --neon-orange: 25 100% 55%;
+    --neon-purple: 270 100% 65%;
+
+    /* Glassmorphism */
+    --glass-bg: 240 15% 10% / 0.6;
+    --glass-border: 0 0% 100% / 0.1;
+    --glass-blur: 20px;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(185 100% 50%), hsl(320 100% 60%));
+    --gradient-accent: linear-gradient(135deg, hsl(85 100% 55%), hsl(185 100% 50%));
+    --gradient-glow: radial-gradient(ellipse at center, hsl(185 100% 50% / 0.3), transparent 70%);
+    --gradient-dark: linear-gradient(180deg, hsl(240 15% 4%), hsl(240 15% 8%));
+
+    /* Shadows */
+    --shadow-neon-cyan: 0 0 20px hsl(185 100% 50% / 0.5), 0 0 40px hsl(185 100% 50% / 0.3);
+    --shadow-neon-magenta: 0 0 20px hsl(320 100% 60% / 0.5), 0 0 40px hsl(320 100% 60% / 0.3);
+    --shadow-neon-lime: 0 0 20px hsl(85 100% 55% / 0.5), 0 0 40px hsl(85 100% 55% / 0.3);
+    --shadow-glass: 0 8px 32px hsl(0 0% 0% / 0.4);
+
+    /* Sidebar */
+    --sidebar-background: 240 15% 6%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 185 100% 50%;
+    --sidebar-primary-foreground: 240 15% 4%;
+    --sidebar-accent: 240 10% 15%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 240 10% 20%;
+    --sidebar-ring: 185 100% 50%;
+  }
+
+  .dark {
+    /* Already dark theme by default */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Space Grotesk', sans-serif;
+    cursor: none;
+  }
+
+  /* Hide default cursor on interactive elements */
+  a, button, [role="button"] {
+    cursor: none;
+  }
+}
+
+@layer components {
+  /* Glassmorphism panels */
+  .glass-panel {
+    @apply rounded-xl border border-white/10 backdrop-blur-xl;
+    background: hsl(var(--glass-bg));
+    box-shadow: var(--shadow-glass);
+  }
+
+  /* Neon text effects */
+  .neon-text-cyan {
+    color: hsl(var(--neon-cyan));
+    text-shadow: 0 0 10px hsl(var(--neon-cyan) / 0.8),
+                 0 0 20px hsl(var(--neon-cyan) / 0.6),
+                 0 0 40px hsl(var(--neon-cyan) / 0.4);
+  }
+
+  .neon-text-magenta {
+    color: hsl(var(--neon-magenta));
+    text-shadow: 0 0 10px hsl(var(--neon-magenta) / 0.8),
+                 0 0 20px hsl(var(--neon-magenta) / 0.6),
+                 0 0 40px hsl(var(--neon-magenta) / 0.4);
+  }
+
+  .neon-text-lime {
+    color: hsl(var(--neon-lime));
+    text-shadow: 0 0 10px hsl(var(--neon-lime) / 0.8),
+                 0 0 20px hsl(var(--neon-lime) / 0.6),
+                 0 0 40px hsl(var(--neon-lime) / 0.4);
+  }
+
+  /* Neon borders */
+  .neon-border-cyan {
+    border-color: hsl(var(--neon-cyan));
+    box-shadow: var(--shadow-neon-cyan);
+  }
+
+  .neon-border-magenta {
+    border-color: hsl(var(--neon-magenta));
+    box-shadow: var(--shadow-neon-magenta);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animated gradient border */
+  .animated-border {
+    position: relative;
+    background: linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
+                var(--gradient-primary) border-box;
+    border: 2px solid transparent;
+    border-radius: var(--radius);
+  }
+
+  /* Glowing button */
+  .btn-glow {
+    @apply relative overflow-hidden transition-all duration-300;
+  }
+
+  .btn-glow::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+    background: var(--gradient-primary);
+    filter: blur(20px);
+    z-index: -1;
+  }
+
+  .btn-glow:hover::before {
+    @apply opacity-50;
+  }
+
+  /* Grid pattern background */
+  .grid-pattern {
+    background-image: 
+      linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Scanline effect */
+  .scanlines::after {
+    content: '';
+    @apply absolute inset-0 pointer-events-none;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      hsl(0 0% 0% / 0.03) 2px,
+      hsl(0 0% 0% / 0.03) 4px
+    );
+  }
+
+  /* Mono font for code/labels */
+  .font-mono-lab {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  /* Animation utilities */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-neon {
+    animation: pulse-neon 2s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-gradient {
+    animation: gradient-shift 8s ease infinite;
+    background-size: 200% 200%;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-neon {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes glow {
+  from { filter: brightness(1) drop-shadow(0 0 5px currentColor); }
+  to { filter: brightness(1.2) drop-shadow(0 0 20px currentColor); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
