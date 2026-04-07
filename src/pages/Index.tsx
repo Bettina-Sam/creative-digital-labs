@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { 
   ArrowRight, Sparkles, Atom, Palette, Zap, MousePointer2,
   GraduationCap, Trophy, BookOpen, Gamepad2, PenTool, Users, Globe, Star,
-  FlaskConical, Wand2, Eye
+  FlaskConical, Wand2, Eye, Hand
 } from 'lucide-react';
 import { PageTransition } from '@/components/PageTransition';
 import { ParticleField } from '@/components/ParticleField';
@@ -171,6 +171,23 @@ const Index = () => {
                 <motion.button onClick={() => setShowWhiteboard(true)} className="px-6 py-4 rounded-xl glass-panel font-bold flex items-center gap-2 hover:border-neon-lime/50" whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }} data-cursor-hover>
                   <PenTool className="w-5 h-5 text-neon-lime" />{t('home.whiteboard')}
                 </motion.button>
+                <motion.a
+                  href="https://air-sculpt-studio.netlify.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-4 rounded-xl font-bold flex items-center gap-2 text-white relative overflow-hidden"
+                  style={{
+                    background: 'linear-gradient(135deg, #06b6d4 0%, #84cc16 100%)',
+                    boxShadow: '0 0 20px rgba(6, 182, 212, 0.4), 0 0 40px rgba(6, 182, 212, 0.15)',
+                  }}
+                  whileHover={{ scale: 1.07, y: -3, boxShadow: '0 0 30px rgba(6, 182, 212, 0.6), 0 0 60px rgba(6, 182, 212, 0.25)' }}
+                  whileTap={{ scale: 0.95 }}
+                  data-cursor-hover
+                >
+                  <Hand className="w-5 h-5" />
+                  Air Sculpt Studio
+                  <ArrowRight className="w-4 h-4" />
+                </motion.a>
               </motion.div>
 
               <motion.div className="flex items-center justify-center gap-6 mt-6 text-muted-foreground" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
