@@ -43,7 +43,7 @@ export const CreativeFooter = () => {
                 <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ repeat: Infinity, duration: 1.5 }}>
                   <Heart className="w-4 h-4 text-neon-magenta fill-neon-magenta" />
                 </motion.div>
-                <span className="text-sm font-bold gradient-text">Bettina Anne Sam</span>
+                <span className="text-sm font-bold gradient-text">FAITH TECH</span>
               </motion.div>
               <p className="text-xs text-muted-foreground mt-1 italic">{t('footer.chaos')}</p>
             </motion.div>
